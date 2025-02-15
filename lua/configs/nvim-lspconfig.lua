@@ -34,6 +34,7 @@ lspconfig.mesonlsp.setup({})
 lspconfig.gopls.setup({})
 lspconfig.zls.setup({})
 lspconfig.vhdl_ls.setup({})
+lspconfig.cmake.setup({})
 -- lspconfig.glsl_analyzer.setup({})
 
 local opts = {
@@ -53,4 +54,27 @@ lspconfig.clangd.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.signatureHelpProvider = false
     end,
+})
+
+lspconfig.pyright.setup({
+    settings = {
+        pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+        },
+        python = {
+            analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+            },
+        },
+    },
+})
+
+lspconfig.ruff.setup({
+    init_options = {
+        settings = {
+            logLevel = 'debug',
+        }
+    }
 })

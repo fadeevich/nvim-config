@@ -10,5 +10,9 @@ require('mason-lspconfig').setup({
         'glsl_analyzer',
         'zls',
         'vhdl_ls',
+        'pyright',
+        -- 'basedpyright',
+        'ruff',
+        'cmake',
     },
 })
