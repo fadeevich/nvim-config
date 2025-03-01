@@ -6,3 +6,4 @@ require(path .. 'format_on_save')
 require(path .. 'maps')
 
 vim.opt.conceallevel = 2
+vim.opt.guicursor = "a:blinkon0"
