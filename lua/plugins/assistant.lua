@@ -8,10 +8,10 @@ return {
                 template = '~/.config/nvim/after/plugin/assistant/templates/c/main.c',
                 compile = {
                     main = 'gcc',
-                    args = { '$FILENAME_WITH_EXTENSION', '-o', '$FILENAME_WITHOUT_EXTENSION', },
+                    args = { '$FILENAME_WITH_EXTENSION', '-o', 'build/$FILENAME_WITHOUT_EXTENSION', },
                 },
                 execute = {
-                    main = './$FILENAME_WITHOUT_EXTENSION',
+                    main = 'build/$FILENAME_WITHOUT_EXTENSION',
                     args = nil,
                 }
             },
