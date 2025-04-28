@@ -8,6 +8,7 @@ return {
             'cmake',
             'tinymist',
             'zls',
+            'rust_analyzer',
         },
     },
 }

@@ -22,4 +22,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.lsp.enable({ 'clangd', 'lua_ls', 'asm_lsp', 'cmake', 'tinymist', 'zls' })
+vim.lsp.enable({
+    'asm_lsp',
+    'clangd',
+    'cmake',
+    'lua_ls',
+    'rust_analyzer',
+    'tinymist',
+    'zls',
+})
