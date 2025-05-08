@@ -17,7 +17,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false, })
+            local s = "qwertyuiopasdfghjklzxcvbnm. "
+            client.server_capabilities.completionProvider.triggerCharacters = vim.split(s, "")
+            vim.lsp.completion.enable(true, client.id, args.buf, {
+                autotrigger = true,
+                convert = function(item)
+                    return { abbr = item.label:gsub('%b()', '') }
+                end,
+            })
         end
     end,
 })

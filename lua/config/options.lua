@@ -15,3 +15,9 @@ vim.opt.conceallevel = 2
 vim.opt.guicursor = 'a:blinkon0'
 
 vim.opt.signcolumn = 'yes'
+
+vim.opt.completeopt = {
+    'menuone',
+    'noselect',
+    'popup',
+}
