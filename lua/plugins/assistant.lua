@@ -15,6 +15,18 @@ return {
                     args = nil,
                 }
             },
+            rust = {
+                extension = 'rs',
+                template = nil,
+                compile = {
+                    main = 'rustc',
+                    args = { '$FILENAME_WITH_EXTENSION', '-o', 'build/$FILENAME_WITHOUT_EXTENSION', },
+                },
+                execute = {
+                    main = 'build/$FILENAME_WITHOUT_EXTENSION',
+                    args = nil,
+                }
+            },
         },
     },
 }
