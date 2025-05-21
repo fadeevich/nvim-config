@@ -30,7 +30,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.lsp.enable({
-    'asm_lsp',
     'clangd',
     'cmake',
     'lua_ls',
