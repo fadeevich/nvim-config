@@ -21,3 +21,7 @@ vim.opt.completeopt = {
     'noselect',
     'popup',
 }
+
+vim.o.background = 'dark'
+
+vim.opt.clipboard = 'unnamedplus'
