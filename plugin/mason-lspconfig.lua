@@ -4,9 +4,14 @@ vim.pack.add({
 })
 
 require('mason').setup()
+
 require('mason-lspconfig').setup({
     ensure_installed = {
         'lua_ls',
         'vimls',
+        'clangd',
+        'zls',
+        'pyright',
+        'mesonlsp',
     },
 })

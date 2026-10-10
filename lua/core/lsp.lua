@@ -1,3 +1,16 @@
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = { "*.cpp", "*.c", "*.h", "*.hpp", "*.cc", "*.cxx" },
+    callback = function(args)
+        vim.lsp.buf.format({
+            bufnr = args.buf,
+            async = false,
+            filter = function(client)
+                return client.name == "clangd"
+            end,
+        })
+    end,
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(args)
@@ -7,13 +20,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
-
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = args.buf,
-            callback = function()
-                vim.lsp.buf.format { async = false }
-            end
-        })
 
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         if client:supports_method('textDocument/completion') then

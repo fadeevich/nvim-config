@@ -1,4 +1,3 @@
 pcall(function()
-    require('lazydev').setup({
-    })
+    require('lazydev').setup {}
 end)
